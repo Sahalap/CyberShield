@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - Site Blocked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0D1117;
+            color: #E6EDF3;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .warning-container {
+            background: #161B22;
+            border: 1px solid rgba(239, 69, 101, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(239, 69, 101, 0.2);
+        }
+
+        .warning-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .warning-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #EF4565, #F5A623);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .warning-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #9BA6B2;
+        }
+
+        .blocked-url {
+            background: #161B22;
+            border: 1px solid rgba(239, 69, 101, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: monospace;
+            word-break: break-all;
+            font-size: 14px;
+            color: #EF4565;
+        }
+
+        .risk-score {
+            display: inline-block;
+            background: linear-gradient(135deg, #EF4565, #dc2626);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+            box-shadow: 0 0 15px rgba(239, 69, 101, 0.3);
+        }
+
+        .warning-details {
+            background: #161B22;
+            border: 1px solid rgba(239, 69, 101, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .warning-reasons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .warning-reasons li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            border-bottom: 1px solid rgba(239, 69, 101, 0.1);
+        }
+
+        .warning-reasons li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 1px solid;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-safe {
+            background: linear-gradient(135deg, #2CB67D, #0BA360);
+            border-color: rgba(44, 182, 125, 0.5);
+            color: white;
+        }
+
+        .btn-safe:hover {
+            background: linear-gradient(135deg, #0BA360, #2CB67D);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(44, 182, 125, 0.4);
+        }
+
+        .btn-continue {
+            background: linear-gradient(135deg, #EF4565, #dc2626);
+            border-color: rgba(239, 69, 101, 0.5);
+            color: white;
+        }
+
+        .btn-continue:hover {
+            background: linear-gradient(135deg, #dc2626, #EF4565);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(239, 69, 101, 0.4);
+        }
+
+        .btn-learn {
+            background: linear-gradient(135deg, #7F5AF0, #3b82f6);
+            border-color: rgba(127, 90, 240, 0.5);
+            color: white;
+        }
+
+        .btn-learn:hover {
+            background: linear-gradient(135deg, #3b82f6, #7F5AF0);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(127, 90, 240, 0.4);
+        }
+
+        .tips-section {
+            background: #161B22;
+            border: 1px solid rgba(11, 163, 96, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            gap: 10px;
+        }
+
+        .tip-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #9BA6B2;
+        }
+
+        .stats-badge {
+            display: inline-block;
+            background: #161B22;
+            border: 1px solid rgba(11, 163, 96, 0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 600px) {
+            .warning-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .warning-title {
+                font-size: 24px;
+            }
+            
+            .warning-subtitle {
+                font-size: 16px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-container">
+        <div class="warning-icon">🛡️</div>
+        <h1 class="warning-title">Site Blocked!</h1>
+        <p class="warning-subtitle">CyberShield has detected a potential phishing threat</p>
+        
+        <div class="blocked-url" id="blocked-url">
+            Loading...
+        </div>
+        
+        <div class="risk-score" id="risk-score">
+            Risk Score: --/100
+        </div>
+        
+        <div class="warning-details">
+            <h3 style="margin-bottom: 15px; color: #ffa726;">🚨 Why was this site blocked?</h3>
+            <ul class="warning-reasons" id="warning-reasons">
+                <li>Loading threat analysis...</li>
+            </ul>
+        </div>
+        
+        <div class="tips-section">
+            <h3 style="margin-bottom: 15px; color: #4ade80;">💡 Stay Safe Online</h3>
+            <div class="tip-item">
+                <div class="tip-icon">🔍</div>
+                <div>
+                    <strong>Check URLs carefully:</strong> Look for misspellings, suspicious domains, and verify the site's legitimacy before entering personal information.
+                </div>
+            </div>
+            <div class="tip-item">
+                <div class="tip-icon">🔐</div>
+                <div>
+                    <strong>Look for HTTPS:</strong> Legitimate sites handling sensitive data should always use secure HTTPS connections.
+                </div>
+            </div>
+            <div class="tip-item">
+                <div class="tip-icon">📧</div>
+                <div>
+                    <strong>Be wary of urgent requests:</strong> Phishing attempts often create false urgency to pressure you into quick actions.
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-safe" id="go-home-btn">
+                🏠 Go to Safe Page
+            </button>
+            <button class="btn btn-learn" id="learn-more-btn">
+                📚 Learn More
+            </button>
+            <button class="btn btn-continue" id="continue-btn">
+                ⚠️ Continue Anyway (Not Recommended)
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>🛡️ Protected by CyberShield</p>
+            <div style="margin-top: 10px;">
+                <span class="stats-badge" id="threats-blocked">0 Threats Blocked</span>
+                <span class="stats-badge" id="user-level">Level 1</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="warning-events.js"></script>
+</body>
+</html>

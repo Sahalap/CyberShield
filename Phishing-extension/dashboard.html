@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - Full Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <div class="logo">🛡️ CyberShield</div>
+            <div class="tagline">AI-Powered Phishing Detection Dashboard</div>
+        </div>
+
+        <div class="status-card">
+            <div class="protection-status">
+                <div class="status-indicator"></div>
+                <span id="protection-status">Protection Active</span>
+            </div>
+            
+            <div class="service-status">
+                <div class="status-dot" id="service-status-dot"></div>
+                <span id="service-status-text">Service Running</span>
+            </div>
+            
+            <div class="ml-status active" id="ml-status">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>🤖 ML Detection</span>
+                    <span id="ml-status-text">Active</span>
+                </div>
+            </div>
+            
+            <div id="current-site-info">
+                <strong id="site-status">Safe Site</strong><br>
+                <span id="site-url">No threats detected</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" id="threats-blocked">0</div>
+                <div class="stat-label">Threats Blocked</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="threats-warned">0</div>
+                <div class="stat-label">Threats Warned</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="emails-analyzed">0</div>
+                <div class="stat-label">Emails Analyzed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="emails-flagged">0</div>
+                <div class="stat-label">Emails Flagged</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="whatsapp-links-analyzed">0</div>
+                <div class="stat-label">WhatsApp Links Analyzed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="whatsapp-links-flagged">0</div>
+                <div class="stat-label">WhatsApp Links Flagged</div>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h4 style="margin-bottom: 15px; font-size: 18px;">Recent Activity</h4>
+            <div id="activity-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📊</div>
+                    <div>No recent activity</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h4 style="margin-bottom: 20px; font-size: 18px;">Protection Settings</h4>
+            
+            <div class="settings-item">
+                <div>
+                    <div style="font-weight: 500; font-size: 16px;">Real-time Protection</div>
+                    <div style="font-size: 13px; opacity: 0.8;">Monitor all web navigation</div>
+                </div>
+                <div class="toggle active" id="toggle-protection">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+
+            <div class="settings-item">
+                <div>
+                    <div style="font-weight: 500; font-size: 16px;">Form Monitoring</div>
+                    <div style="font-size: 13px; opacity: 0.8;">Warn before submitting credentials</div>
+                </div>
+                <div class="toggle active" id="toggle-forms">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+
+            <div class="settings-item">
+                <div>
+                    <div style="font-weight: 500; font-size: 16px;">Notifications</div>
+                    <div style="font-size: 13px; opacity: 0.8;">Show threat notifications</div>
+                </div>
+                <div class="toggle active" id="toggle-notifications">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons-grid">
+            <button class="action-button primary" id="security-training">
+                🎓 Security Training
+            </button>
+
+            <button class="action-button" id="learn-phishing" style="background: linear-gradient(135deg, #7F5AF0, #3b82f6); border-color: rgba(127, 90, 240, 0.5);">
+                📚 Learn About Phishing
+            </button>
+
+            <button class="action-button" id="security-tips" style="background: linear-gradient(135deg, #0BA360, #2CB67D); border-color: rgba(11, 163, 96, 0.5);">
+                💡 Security Tips
+            </button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+    <script src="popup-events.js"></script>
+</body>
+</html>
+
+
