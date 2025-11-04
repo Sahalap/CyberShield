@@ -1,0 +1,50 @@
+{
+  "feature_names": [
+    "url_length",
+    "hostname_length",
+    "is_https",
+    "subdomain_count",
+    "hyphen_count",
+    "digit_count",
+    "is_suspicious_tld",
+    "brand_spoofing_score",
+    "has_character_substitution",
+    "suspicious_keyword_count",
+    "at_symbol_count",
+    "dot_count",
+    "path_depth"
+  ],
+  "feature_extractor_config": {
+    "suspicious_tlds": [
+      ".tk",
+      ".ml",
+      ".ga",
+      ".cf",
+      ".gq",
+      ".xyz",
+      ".top",
+      ".work"
+    ],
+    "brand_patterns": {
+      "paypal": "p[a@]yp[a@]l|paypa1|paypa|p4ypal",
+      "amazon": "[a@]m[a@]z[o0]n|amaz0n|amazom",
+      "microsoft": "micr[o0]s[o0]ft|micros0ft|micr0soft",
+      "google": "g[o0]{2}gle|g00gle|gooogle",
+      "apple": "[a@]pple|app1e|appl3|@pple"
+    },
+    "suspicious_keywords": [
+      "verify",
+      "secure",
+      "account",
+      "update",
+      "confirm",
+      "login"
+    ]
+  },
+  "training_stats": {
+    "total_urls": 600,
+    "phishing_urls": 300,
+    "legitimate_urls": 300,
+    "feature_count": 13
+  }
+}
